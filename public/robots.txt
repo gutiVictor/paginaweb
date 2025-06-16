@@ -1,0 +1,6 @@
+# https://www.robotstxt.org/robotstxt.html
+User-agent: *
+Allow: /
+
+# IMPORTANTE: Reemplazar con tu dominio real (ejemplo: https://tudominio.com)
+Sitemap: https://apartamentosastromelias.com/sitemap.xml 

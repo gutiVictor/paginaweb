@@ -71,7 +71,7 @@ function Footer() {
           </ContactInfo>
           <ContactInfo>
             <FaEnvelope />
-            <span>info@astromelias.com</span>
+            <span>info@grano&hogar.com</span>
           </ContactInfo>
           <ContactInfo>
             <FaMapMarkerAlt />
@@ -83,8 +83,12 @@ function Footer() {
           <h3>Enlaces Rápidos</h3>
           <FooterLink to="/">Inicio</FooterLink>
           <FooterLink to="/apartamentos">Apartamentos</FooterLink>
+          <FooterLink to="/arriendos">Arriendos</FooterLink>
+          <FooterLink to="/ventas">Ventas</FooterLink>
+          <FooterLink to="/airbnb">Airbnb</FooterLink>
           <FooterLink to="/servicios">Servicios</FooterLink>
           <FooterLink to="/contacto">Contacto</FooterLink>
+          <FooterLink to="/nosotros">Sobre Nosotros</FooterLink>
         </FooterSection>
 
         <FooterSection>
@@ -97,7 +101,7 @@ function Footer() {
       </FooterContent>
 
       <Copyright>
-        © {new Date().getFullYear()} Apartamentos Las Astromelias. Todos los derechos reservados.
+        © {new Date().getFullYear()} Grano y Hogar. Todos los derechos reservados.
       </Copyright>
     </FooterContainer>
   );

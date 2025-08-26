@@ -176,7 +176,7 @@ const Contacto = () => {
             <Icon><FaEnvelope /></Icon>
             <div>
               <h3>Email</h3>
-              <p>info@astromelias.com</p>
+              <p>info@grano&hogar.com</p>
             </div>
           </ContactoItem>
           <ContactoItem>

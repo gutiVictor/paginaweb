@@ -2,6 +2,25 @@ import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { FaBed, FaCar, FaMapMarkedAlt } from 'react-icons/fa';
+import logoImage from '../imagenes/logo.png';
+const Logo = styled(Link)`
+  color: white;
+  text-decoration: none;
+  font-size: 1.5rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+
+  img {
+    height: 160px;
+    width: auto;
+    margin-right: 10px;
+  }
+
+  &:hover {
+    color: #f1c40f;
+  }
+`;
 
 const HeroSection = styled.section`
   height: 100vh;
@@ -100,9 +119,14 @@ function Home() {
     <>
       <HeroSection>
         <HeroContent>
-          <Title>Apartamentos Las Astromelias</Title>
+        <Logo to="/">
+  <img src={logoImage} alt="Grano y Hogar" />
+  <span>Grano y Hogar</span>
+
+</Logo>
+          
           <Subtitle>
-            Tu hogar lejos de casa en Salento y Armenia
+            Donde Tu sueño empieza a crecer
           </Subtitle>
           <CTAButton to="/apartamentos">Ver Apartamentos</CTAButton>
         </HeroContent>
@@ -139,6 +163,8 @@ function Home() {
               Descubre los mejores tours y actividades en la región con nuestros guías expertos.
             </FeatureDescription>
           </FeatureCard>
+
+          
         </FeaturesContainer>
       </FeaturesSection>
     </>

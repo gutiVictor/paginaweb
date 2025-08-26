@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { FaBars, FaTimes } from 'react-icons/fa';
+import logoImage from '../imagenes/logo.png';
 
 const Nav = styled.nav`
   background: linear-gradient(to right, #2c3e50, #3498db);
@@ -19,15 +20,23 @@ const NavContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  
 `;
 
 const Logo = styled(Link)`
   color: white;
   text-decoration: none;
-  font-size: 1.5rem;
-  font-weight: 700;
+  font-size: 1.2rem; // Reducido de 1.5rem a 1.2rem
+  font-weight: 200;
   display: flex;
   align-items: center;
+  margin-right: auto; // Asegura que se quede a la izquierda
+  
+  img {
+    height: 50px; // Reducido el tamaño de la imagen
+    width: auto;
+    margin-right: 2px; // Espacio entre la imagen y el texto
+  }
   
   &:hover {
     color: #f1c40f;
@@ -79,17 +88,23 @@ function Navbar() {
   return (
     <Nav>
       <NavContainer>
-        <Logo to="/">
-          Apartamentos Las Astromelias
-        </Logo>
+      <Logo to="/">
+        <img src={logoImage} alt="Grano y Hogar" />
+        Grano y Hogar
+      </Logo>
         <MenuIcon onClick={() => setIsOpen(!isOpen)}>
           {isOpen ? <FaTimes /> : <FaBars />}
         </MenuIcon>
         <NavLinks isOpen={isOpen}>
           <NavLink to="/" onClick={() => setIsOpen(false)}>Inicio</NavLink>
           <NavLink to="/apartamentos" onClick={() => setIsOpen(false)}>Apartamentos</NavLink>
+          <NavLink to="/arriendos" onClick={() => setIsOpen(false)}>Arriendos</NavLink>
+          <NavLink to="/ventas" onClick={() => setIsOpen(false)}>Ventas</NavLink>
+          <NavLink to="/airbnb" onClick={() => setIsOpen(false)}>Airbnb</NavLink>
           <NavLink to="/servicios" onClick={() => setIsOpen(false)}>Servicios</NavLink>
           <NavLink to="/contacto" onClick={() => setIsOpen(false)}>Contacto</NavLink>
+          
+         
         </NavLinks>
       </NavContainer>
     </Nav>

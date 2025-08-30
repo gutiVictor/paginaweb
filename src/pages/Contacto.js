@@ -128,7 +128,7 @@ const Contacto = () => {
     }
 
     // Crear el mensaje para WhatsApp con formato mejorado
-    const mensaje = `*Nueva solicitud de reserva - Apartamentos Las Astromelias*\n\n` +
+    const mensaje = `*Nueva solicitud de reserva - Grano y Hogar*\n\n` +
       `*Información del cliente:*\n` +
       `👤 *Nombre:* ${formData.nombre}\n` +
       `📧 *Email:* ${formData.email}\n` +

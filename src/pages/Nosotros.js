@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { FaCar, FaMapMarkedAlt, FaParking, FaSwimmingPool, FaWifi, FaUtensils } from 'react-icons/fa';
+import { FaHeart, FaRocket } from 'react-icons/fa'; // 👈 Nuevos iconos
 
 const PageContainer = styled.div`
   padding-top: 80px;
@@ -39,7 +39,7 @@ const NosotrosCard = styled.div`
   }
 `;
 
-const Nosotrosicon = styled.div`
+const NosotrosIcon = styled.div`
   font-size: 3rem;
   color: #3498db;
   margin-bottom: 1.5rem;
@@ -59,7 +59,7 @@ const NosotrosDescription = styled.p`
   margin-bottom: 1.5rem;
 `;
 
-const NosotrosFeactures = styled.ul`
+const NosotrosFeatures = styled.ul`
   list-style: none;
   padding: 0;
   margin: 0;
@@ -81,22 +81,18 @@ const Feature = styled.li`
 const nosotros = [
   {
     id: 1,
-    icon: <FaCar />,
-    title: " Misión",
-    description: "En Grano y Hogar nos dedicamos a transformar sueños en realidades, ofreciendo soluciones inmobiliarias de excelencia que combinan confianza, transparencia y calidez. Nuestro compromiso es brindar un servicio personalizado y profesional, sembrando bases sólidas para que cada familia y cada inversionista encuentre en nosotros el hogar o el proyecto ideal..",
-    features: [
-      
-    ],
+    icon: <FaHeart />, // ❤️ Misión: Calidez, confianza, servicio personalizado
+    title: "Misión",
+    description: "En Grano y Hogar nos dedicamos a transformar sueños en realidades, ofreciendo soluciones inmobiliarias de excelencia que combinan confianza, transparencia y calidez. Nuestro compromiso es brindar un servicio personalizado y profesional, sembrando bases sólidas para que cada familia y cada inversionista encuentre en nosotros el hogar o el proyecto ideal.",
+    features: [],
   },
   {
     id: 2,
-    icon: <FaMapMarkedAlt />,
+    icon: <FaRocket />, // 🚀 Visión: Crecimiento, liderazgo, futuro
     title: "Visión",
-    description: " El propósito es ser la inmobiliaria líder reconocida por su innovación, integridad y calidad en el servicio, destacándonos como la primera opción de quienes buscan seguridad y confianza para crecer. En Grano y Hogar aspiramos a construir no solo espacios, sino también relaciones duraderas que inspiren bienestar, prosperidad y arraigo.",
-    features: [
-      
-    ],
-  }
+    description: "El propósito es ser la inmobiliaria líder reconocida por su innovación, integridad y calidad en el servicio, destacándonos como la primera opción de quienes buscan seguridad y confianza para crecer. En Grano y Hogar aspiramos a construir no solo espacios, sino también relaciones duraderas que inspiren bienestar, prosperidad y arraigo.",
+    features: [],
+  },
 ];
 
 function Nosotros() {
@@ -105,16 +101,16 @@ function Nosotros() {
       <Section>
         <Title>Nosotros</Title>
         <NosotrosGrid>
-          {nosotros.map((service) => (
-            <NosotrosCard key={service.id}>
-              <Nosotrosicon>{service.icon}</Nosotrosicon>
-              <NosotrosTitle>{service.title}</NosotrosTitle>
-              <NosotrosDescription>{service.description}</NosotrosDescription>
-              <NosotrosFeactures>
-                {service.features.map((feature, index) => (
+          {nosotros.map((item) => (
+            <NosotrosCard key={item.id}>
+              <NosotrosIcon>{item.icon}</NosotrosIcon>
+              <NosotrosTitle>{item.title}</NosotrosTitle>
+              <NosotrosDescription>{item.description}</NosotrosDescription>
+              <NosotrosFeatures>
+                {item.features.map((feature, index) => (
                   <Feature key={index}>{feature}</Feature>
                 ))}
-              </NosotrosFeactures>
+              </NosotrosFeatures>
             </NosotrosCard>
           ))}
         </NosotrosGrid>
@@ -123,4 +119,4 @@ function Nosotros() {
   );
 }
 
-export default Nosotros; 
+export default Nosotros;

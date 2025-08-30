@@ -21,13 +21,13 @@ const Title = styled.h1`
   font-size: 2.5rem;
 `;
 
-const ServicesGrid = styled.div`
+const NosotrosGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2rem;
 `;
 
-const ServiceCard = styled.div`
+const NosotrosCard = styled.div`
   background: white;
   border-radius: 10px;
   padding: 2rem;
@@ -39,27 +39,27 @@ const ServiceCard = styled.div`
   }
 `;
 
-const ServiceIcon = styled.div`
+const Nosotrosicon = styled.div`
   font-size: 3rem;
   color: #3498db;
   margin-bottom: 1.5rem;
   text-align: center;
 `;
 
-const ServiceTitle = styled.h2`
+const NosotrosTitle = styled.h2`
   color: #2c3e50;
   margin-bottom: 1rem;
   font-size: 1.5rem;
   text-align: center;
 `;
 
-const ServiceDescription = styled.p`
+const NosotrosDescription = styled.p`
   color: #666;
   line-height: 1.6;
   margin-bottom: 1.5rem;
 `;
 
-const ServiceFeatures = styled.ul`
+const NosotrosFeactures = styled.ul`
   list-style: none;
   padding: 0;
   margin: 0;
@@ -78,7 +78,7 @@ const Feature = styled.li`
   }
 `;
 
-const services = [
+const nosotros = [
   {
     id: 1,
     icon: <FaCar />,
@@ -104,20 +104,20 @@ function Nosotros() {
     <PageContainer>
       <Section>
         <Title>Nosotros</Title>
-        <ServicesGrid>
-          {services.map((service) => (
-            <ServiceCard key={service.id}>
-              <ServiceIcon>{service.icon}</ServiceIcon>
-              <ServiceTitle>{service.title}</ServiceTitle>
-              <ServiceDescription>{service.description}</ServiceDescription>
-              <ServiceFeatures>
+        <NosotrosGrid>
+          {nosotros.map((service) => (
+            <NosotrosCard key={service.id}>
+              <Nosotrosicon>{service.icon}</Nosotrosicon>
+              <NosotrosTitle>{service.title}</NosotrosTitle>
+              <NosotrosDescription>{service.description}</NosotrosDescription>
+              <NosotrosFeactures>
                 {service.features.map((feature, index) => (
                   <Feature key={index}>{feature}</Feature>
                 ))}
-              </ServiceFeatures>
-            </ServiceCard>
+              </NosotrosFeactures>
+            </NosotrosCard>
           ))}
-        </ServicesGrid>
+        </NosotrosGrid>
       </Section>
     </PageContainer>
   );

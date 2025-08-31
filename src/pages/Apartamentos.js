@@ -2,11 +2,14 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import ImageGallery from 'react-image-gallery';
 import "react-image-gallery/styles/css/image-gallery.css";
+import { FaWhatsapp } from 'react-icons/fa'; // Icono de WhatsApp
 
+// === CONTENEDOR PRINCIPAL ===
 const PageContainer = styled.div`
   padding-top: 80px;
   min-height: 100vh;
   background: #f8f9fa;
+  position: relative;
 `;
 
 const Section = styled.section`
@@ -106,7 +109,86 @@ const PageButton = styled.button`
   }
 `;
 
-// Imágenes comunes para todas las propiedades (puedes personalizar por apartamento si lo deseas)
+// === BOTÓN DE WHATSAPP FLOTANTE ===
+const WhatsAppWrapper = styled.div`
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  z-index: 1000;
+
+  @media (max-width: 480px) {
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 5px;
+    bottom: 15px;
+    right: 15px;
+  }
+`;
+
+const WhatsAppLabel = styled.span`
+  background: #25D366;
+  color: white;
+  padding: 8px 12px;
+  border-radius: 15px;
+  font-size: 0.9rem;
+  white-space: nowrap;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+
+  @media (max-width: 480px) {
+    display: none;
+  }
+`;
+
+const WhatsAppButton = styled.a`
+  background-color: #25D366;
+  color: white;
+  padding: 15px;
+  border-radius: 50%;
+  font-size: 2rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+
+  &:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+
+    ${WhatsAppLabel} {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+
+  @keyframes pulse {
+    0% {
+      box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+    }
+    70% {
+      box-shadow: 0 0 0 10px rgba(37, 211, 102, 0);
+    }
+    100% {
+      box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+    }
+  }
+
+  animation: pulse 2s infinite;
+
+  @media (max-width: 480px) {
+    padding: 12px;
+    font-size: 1.8rem;
+  }
+`;
+
+// === IMÁGENES COMUNES PARA TODAS LAS PROPIEDADES ===
 const images = [
   {
     original: "https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80",
@@ -122,7 +204,7 @@ const images = [
   },
 ];
 
-// Lista ampliada de apartamentos (ahora 10)
+// === LISTA DE APARTAMENTOS ===
 const apartmentsList = [
   {
     id: 1,
@@ -201,6 +283,12 @@ function Apartamentos() {
     }
   };
 
+  // === CONFIGURACIÓN DE WHATSAPP ===
+  const mensajeWhatsApp = encodeURIComponent(
+    "Hola, vi su sección de apartamentos y me gustaría más información. ¿Tienen disponibilidad?"
+  );
+  const numeroWhatsApp = "573218907254"; // ← CAMBIA POR TU NÚMERO REAL (ej: 573101234567)
+
   return (
     <PageContainer>
       <Section>
@@ -256,6 +344,19 @@ function Apartamentos() {
           </PageButton>
         </Pagination>
       </Section>
+
+      {/* === BOTÓN DE WHATSAPP === */}
+      <WhatsAppWrapper>
+        <WhatsAppLabel>Escríbenos</WhatsAppLabel>
+        <WhatsAppButton
+          href={`https://wa.me/${numeroWhatsApp}?text=${mensajeWhatsApp}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Chatea con nosotros por WhatsApp"
+        >
+          <FaWhatsapp />
+        </WhatsAppButton>
+      </WhatsAppWrapper>
     </PageContainer>
   );
 }
